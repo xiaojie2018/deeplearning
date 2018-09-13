@@ -1,0 +1,28 @@
+<html>
+<body>
+    <div>
+        <p>查询: <input type="text" id="username" /></p>
+
+    </div>
+    <input type="button" value="提交" onclick="SubmitForm();"/>
+    <div>
+        <span id="tips"></span>
+    </div>
+
+     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        function SubmitForm(){
+            $.ajax({
+                url:'/ajax_demo/',
+                type:'POST',
+                data:{'user':$('#username').val()},
+                success:function(data){
+
+                    $("#tips").text(data)
+
+                }
+            })
+        }
+    </script>
+</body>
+</html>
